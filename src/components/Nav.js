@@ -68,6 +68,7 @@ height: 110px;
 
 export default function Nav() {
 
+
     let [isOnView, placeView] = useState(false)
     let [secOnView, place2View] = useState(false)
 
@@ -98,14 +99,27 @@ export default function Nav() {
             <ul className='left'>
                 <img src={logo} alt="an-imge" />
                 <li>
-                    <Button buttonName={"Features"} dropDown={true} onClick={() => placeView(isOnView => !isOnView)} />
+                    <Button
+                        buttonName={"Features"}
+                        dropDown={true}
+                        onClick={() => {
+                            placeView(isOnView => !isOnView)
+                            place2View(false)
+                        }} />
                 </li>
                 {isOnView && <FirstList />}
 
                 <li>
-                    <Button buttonName={"Company"} dropDown={true} onClick={() => place2View(secOnView => !secOnView)} />
+                    <Button
+                        buttonName={"Company"}
+                        dropDown={true}
+                        onClick={() => {
+                            place2View(secOnView => !secOnView)
+                            placeView(false)
+                        }} />
                 </li>
                 {secOnView && <SecondList />}
+
                 <li>
                     <Button buttonName={"Career"} />
 
