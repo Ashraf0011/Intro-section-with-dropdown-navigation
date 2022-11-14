@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-
+/**
+ * responsive part left to do
+ */
 
 /**
  * For Grid system we would devide the full width into 12 column sections.
