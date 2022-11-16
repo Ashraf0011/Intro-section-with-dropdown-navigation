@@ -1,13 +1,18 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import { Page } from "./styles/Pages.styled";
 import React from 'react'
-import Button from "./Button";
+
+
 
 import databiz from '../images/client-databiz.svg'
 import audiophile from '../images/client-audiophile.svg'
 import meet from '../images/client-meet.svg'
 import maker from '../images/client-maker.svg'
 import desktop from '../images/image-hero-desktop.png'
+import mobile from '../images/image-hero-mobile.png'
+
+
+
 
 const Pages = () => {
     return (
@@ -32,10 +37,10 @@ const Pages = () => {
 
 
 
-                <img className="ig" alt="background Image" src={desktop} ></img>
+                <img className="ig" alt="background Image" src={window.innerWidth < 600 ? mobile : desktop}></img>
 
             </div>
-        </Page>
+        </Page >
     )
 }
 

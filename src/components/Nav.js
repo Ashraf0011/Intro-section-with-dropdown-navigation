@@ -3,9 +3,11 @@ import React, { useState } from 'react'
 import Button from './Button';
 import logo from '../images/logo.svg'
 import styled from "styled-components";
+import OutsideClickHandler from 'react-outside-click-handler';
+
 
 const NavStyled = styled.nav`
-margin-top: 10px;
+margin: .8rem 7.4rem;
 display:flex;
 justify-content: space-between;
 ul.left {
@@ -45,7 +47,6 @@ box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.149126);
 border-radius: 10px;
 
     list-style-type: none ;
-    
     li{
          list-style-type: none ;
     }
@@ -68,11 +69,11 @@ height: 110px;
 
 export default function Nav() {
 
-
     let [isOnView, placeView] = useState(false)
     let [secOnView, place2View] = useState(false)
 
     const FirstList = () => {
+
         return (
             <ListNav className='newView' >
                 <li> <Button buttonName={"Calander"} iconName={"RiCalendarEventFill"} iconColor={"red"} /> </li>
@@ -95,30 +96,41 @@ export default function Nav() {
 
 
     return (
-        <NavStyled>
+
+        <NavStyled  >
             <ul className='left'>
                 <img src={logo} alt="an-imge" />
-                <li>
-                    <Button
-                        buttonName={"Features"}
-                        dropDown={true}
-                        onClick={() => {
-                            placeView(isOnView => !isOnView)
-                            place2View(false)
-                        }} />
-                </li>
-                {isOnView && <FirstList />}
+                <li >
+                    <OutsideClickHandler onOutsideClick={() => {
+                        placeView(false)
+                    }}>
+                        <Button
+                            buttonName={"Features"}
+                            dropDown={true}
+                            onClick={() => {
+                                placeView(isOnView => !isOnView)
+                                place2View(false)
+                            }} />
+                    </OutsideClickHandler>
 
-                <li>
-                    <Button
-                        buttonName={"Company"}
-                        dropDown={true}
-                        onClick={() => {
-                            place2View(secOnView => !secOnView)
-                            placeView(false)
-                        }} />
                 </li>
-                {secOnView && <SecondList />}
+
+                {isOnView ? <FirstList /> : <></>}
+
+                <li >
+                    <OutsideClickHandler onOutsideClick={() => { place2View(false) }}>
+                        <Button
+                            buttonName={"Company"}
+                            dropDown={true}
+                            onClick={() => {
+                                place2View(secOnView => !secOnView)
+                                placeView(false)
+                            }} />
+                    </OutsideClickHandler>
+
+
+                </li>
+                {secOnView ? <SecondList /> : <></>}
 
                 <li>
                     <Button buttonName={"Career"} />
@@ -129,6 +141,7 @@ export default function Nav() {
 
                 </li>
             </ul>
+
 
             <ul className='right'>
                 <li>
