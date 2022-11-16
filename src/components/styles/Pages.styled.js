@@ -210,7 +210,7 @@ grid-template-rows:repeat(12, 1fr);
         grid-template-rows:repeat(5, 1fr);
         
     img{ 
-            grid-column: 1/-1;
+            grid-column: 1 / span 11;
             grid-row: 1/2;
             
             &.ig{
@@ -221,12 +221,17 @@ grid-template-rows:repeat(12, 1fr);
         }
 
     .headings{ 
-        grid-column: 2/5 ; 
+        grid-column: 1 / span 11;
         grid-row: 2/3;
+        /* display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; */
+        text-align: center;
         }
     .description{ 
 
-        grid-column: 2/5; 
+        grid-column: 1 / span 11;
         grid-row: 3/4;
         }
     button{  
@@ -236,13 +241,13 @@ grid-template-rows:repeat(12, 1fr);
         }
     .brands{
 
-        grid-column:1/-1; 
-        grid-row:6/-1; 
+        margin:auto;
+        grid-column:1/ span 11; 
+        grid-row:12;
          img{
-
-            width: 5rem;
+            width: 2.2rem;
+            margin-left: 1rem;
             height: auto;
-            
         }
         }
     
@@ -282,17 +287,17 @@ grid-template-rows:repeat(12, 1fr);
     button{  
  
         grid-column: 2/ span 5 ; 
-        grid-row:11 / span 1;
+        grid-row:10 / span 1;
        
         }
     .brands{
-        grid-column: 1 / 12; 
+        grid-column: 1 / span 5; 
         grid-row:12; 
         margin: auto;
          img{
  
             margin: 0 1rem;
-            width: 5.5rem;
+            width: 2rem;
             height: auto;
             
         }
@@ -349,12 +354,13 @@ grid-template-rows:repeat(12, 1fr);
         grid-row: 9/ span 1;
         }
     .brands{  
-        grid-column: 1 / span 11;
+        grid-column: 2 / span 5;
+        grid-row: 10;
         margin: auto;
           img{
  
             margin: 0 1rem;
-            width: 40px;
+            width: 70px;
             height:1rem;
             
         }}
@@ -410,8 +416,11 @@ img{
         grid-row: 10/ span 1;
         }
     .brands{  
-        grid-column: 1 / span 11;
-        margin: auto;}
+
+        grid-column: 1 / span 5;
+        grid-row: 11;
+        margin: auto;
+        }
 
     }
 }

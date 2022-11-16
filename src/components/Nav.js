@@ -7,9 +7,10 @@ import OutsideClickHandler from 'react-outside-click-handler';
 
 
 const NavStyled = styled.nav`
-margin: .8rem 7.4rem;
+margin: .8rem 1.4rem;
 display:flex;
 justify-content: space-between;
+transition: all 0.5s ease-in, height;
 ul.left {
     list-style-type:none;
     display: flex;
@@ -36,7 +37,7 @@ ul.right {
 const ListNav = styled.ul`
 position: absolute;
 top: 70px;
-left: 113px;
+left: 170px;
 padding: 10px;
 width: 153px;
 height: 160px;
@@ -45,7 +46,7 @@ height: 160px;
 background: #FFFFFF;
 box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.149126);
 border-radius: 10px;
-
+transition: all 0.5 ease-in-out, height ;
     list-style-type: none ;
     li{
          list-style-type: none ;
@@ -55,11 +56,11 @@ border-radius: 10px;
 const SecListNav = styled(ListNav)`
 position: absolute;
 z-index: 2;
-left: 306px;
+left: 355px;
 top: 70px;
 width: 116px;
 height: 110px;
-   
+transition: all 0.5 ease-in-out;
     button{
         margin: 0px 4px;
         padding: 8px 10px;
